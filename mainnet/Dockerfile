@@ -39,6 +39,3 @@ EXPOSE 8332 8333 28332
 # Startup script that will copy in config settings at startup.
 COPY startup-script.sh startup-script.sh
 CMD ["./startup-script.sh"]
-
-#COPY dummyapp.js dummyapp.js
-#CMD ["node", "dummyapp.js"]

@@ -1,4 +1,4 @@
-bitcoind:
+lotusd:
   build: .
   dockerfile: Dockerfile
   #image: christroutner/bitcoind-bch-abc-0.21.9
@@ -10,8 +10,8 @@ bitcoind:
   volumes:
     #- /mnt/data/blockchain-data/lotus-mainnet/lotus-blockchain-data:/data
     #- ../config:/home/bitcoin/config
-    - ../../mainnet/blockchain-data:/data
-    - ../../mainnet/config:/home/bitcoin/config
+    - ./blockchain/data:/data
+    - ./blockchain/config:/home/bitcoin/config
   restart: unless-stopped
   #stop_signal: SIGINT
   #stop_signal: SIGTERM #default
