@@ -11,15 +11,16 @@ cd /home/bitcoin
 
 # Function that runs when the docker container recieves the SIGTERM signal.
 stopBitcoind() {
-  echo "Stopping bitcoind..."
+  echo "Stopping lotusd..."
 
   # Instruct bitcoind to shut down.
-  bitcoin-cli -conf=/data/bitcoin.conf stop
+  # bitcoin-cli -conf=/data/bitcoin.conf stop
+  /home/bitcoin/bitcoin-abc-0.23.1/bin/lotus-cli -conf=/data/lotus.conf stop
 
   # Wait 5 seconds for bitcoind to do its thing.
   sleep 5
 
-  echo "...bitcoind has exited."
+  echo "...lotusd has exited."
 }
 
 #Trap SIGTERM

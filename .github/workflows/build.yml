@@ -1,0 +1,36 @@
+name: Build
+
+on: 
+  push:
+    branches:
+      - master
+      - feature/workflow
+  repository_dispatch:
+    types: [publish-nodes]
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+
+    env:
+      VERSION: '0.0.1'
+      SOLUTION_PATH: '${{ matrix.solution }}'
+      PROJECT_PATH: '${{ matrix.project }}'
+      BUILD_CONFIGURATION: 'Release'
+
+    steps:
+
+    - uses: actions/checkout@v1
+      name: Checkout
+
+    - name: Build the Docker container image
+      run: docker build -f "Dockerfile" -t sondreb/lotus:latest -t sondreb/lotus:${{env.VERSION}} --label "unstable=true" "."
+
+    # - name: Login and Push to Docker Registry
+    #   run: |
+    #     docker login -u "sondreb" -p "${{secrets.DockerHubSecret}}"
+    #     docker push --all-tags sondreb/lotus
