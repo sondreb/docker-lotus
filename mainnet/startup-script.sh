@@ -15,7 +15,7 @@ stopBitcoind() {
 
   # Instruct bitcoind to shut down.
   # bitcoin-cli -conf=/data/bitcoin.conf stop
-  /home/bitcoin/bitcoin-abc-0.23.1/bin/lotus-cli -conf=/data/lotus.conf stop
+  /home/bitcoin/lotus-1.0.1/bin/lotus-cli -conf=/data/lotus.conf stop
 
   # Wait 5 seconds for bitcoind to do its thing.
   sleep 5

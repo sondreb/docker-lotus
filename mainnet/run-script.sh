@@ -10,4 +10,4 @@ cp /home/bitcoin/config/lotus.conf /data/lotus.conf
 #CMD ["bitcoind", "-conf=/home/bitcoin/bitcoin.conf", "-datadir=/data", "-disablewallet"]
 #CMD ["bitcoind", "-conf=/data/bitcoin.conf", "-datadir=/data", "-disablewallet"]
 
-lotusd -conf=/data/lotus.conf -datadir=/data -disablewallet
+lotus-1.0.1/bin/lotusd -conf=/data/lotus.conf -datadir=/data -disablewallet
