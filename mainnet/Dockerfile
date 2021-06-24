@@ -38,4 +38,5 @@ EXPOSE 8332 8333 28332
 
 # Startup script that will copy in config settings at startup.
 COPY startup-script.sh startup-script.sh
+COPY run-script.sh run-script.sh
 CMD ["./startup-script.sh"]
