@@ -14,6 +14,7 @@ stopBitcoind() {
   echo "Stopping lotusd..."
 
   # Instruct bitcoind to shut down.
+  # TODO: Figure out what the correct path here should be, this is likely wrong.
   /home/bitcoin/bitcoin-abc-0.23.1/bin/lotus-cli -conf=/data/lotus.conf stop
 
   # Wait 5 seconds for bitcoind to do its thing.
