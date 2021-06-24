@@ -58,10 +58,6 @@ A Lotus full node based on the Lotus reference client. Currently there is only a
 - Edit the lotus.conf file in the `config` directory and restart the container
   if you need to change the configuration settings for the full node.
 
-## Testnet
-
-Currently only testnet is available.
-
 # License
 
 [MIT License](LICENSE.md)
