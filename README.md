@@ -1,8 +1,41 @@
 # docker-lotus
 
-A Lotus full node based on the Lotus reference client. Currently there is only a testnet available and the binary for running the node must be manually downloaded. Help for setting up a node can be found in [the Lotus Telegram channel](https://t.me/givelotus).
+Builds and publishes docker images for the Lotus full node software.
 
-# Installation and Usage
+Get help on the official [Lotus Telegram channel](https://t.me/givelotus).
+
+## Run on a Docker host
+
+```sh
+git clone https://github.com/sondreb/docker-lotus.git
+sudo docker-compose up -d
+```
+
+That's all you need to do, to run a basic instance of the Lotus full node. Have a look at the volume configuration and lotus.conf to customer your set. Check out the [docker-compose.yml](docker-compose.yml) file.
+
+## Customize configuration
+
+Put a copy of the "lotus.conf" on this path, to have it be copied and override the default:
+
+`/home/bitcoin/config/lotus.conf`
+
+## Create new release
+
+To create a new release, simply make an GitHub release and specify the version number as a label. When published, it will trigger GitHub Workflow that will publish to Docker Hub.
+
+## Run from Dockerfile
+
+If you don't want to use the Docker Hub published image, you can build and run it locally by navigating to the `mainnet` folder and run:
+
+```sh
+sudo docker-compose up -d
+```
+
+This will build based on the [mainnet/Dockerfile](mainnet/Dockerfile).
+
+## Installation and Usage
+
+
 
 - It's assumed that you are starting with a fresh installation of Ubuntu 18.04
   LTS on a 64-bit machine. It's also assumed that you are installing as
@@ -58,6 +91,6 @@ A Lotus full node based on the Lotus reference client. Currently there is only a
 - Edit the lotus.conf file in the `config` directory and restart the container
   if you need to change the configuration settings for the full node.
 
-# License
+## License
 
 [MIT License](LICENSE.md)
