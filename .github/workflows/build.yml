@@ -28,7 +28,7 @@ jobs:
       name: Checkout
 
     - name: Build the Docker container image
-      run: docker build -f "Dockerfile" -t sondreb/lotus:latest -t sondreb/lotus:${{env.VERSION}} --label "unstable=true" "."
+      run: docker build -f "mainnet/Dockerfile" -t sondreb/lotus:latest -t sondreb/lotus:${{env.VERSION}} --label "unstable=true" "."
 
     # - name: Login and Push to Docker Registry
     #   run: |
