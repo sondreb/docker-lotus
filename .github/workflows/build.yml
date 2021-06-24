@@ -1,0 +1,31 @@
+name: Build Docker Image
+
+on: 
+  push:
+    branches:
+      - master
+      - feature/workflow
+  repository_dispatch:
+    types: [publish-nodes]
+  workflow_dispatch:
+
+# defaults:
+#   run:
+#     working-directory: mainnet
+
+jobs:
+  build:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+
+    env:
+      VERSION: '0.0.1'
+
+    steps:
+
+    - uses: actions/checkout@master
+      name: Checkout
+
+    - name: Build the Docker container image
+      working-directory: mainnet
+      run: docker build -f "Dockerfile" -t sondreb/lotus:latest -t sondreb/lotus:${{env.VERSION}} --label "unstable=true" "."
